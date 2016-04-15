@@ -3,8 +3,8 @@
     =form_tag(create_patient_path, :method=>'post') do
       .form-group
         Patient name :
-        =text_field_tag "name","",:class => "form-control",:autocomplete => "off"
+        =text_field_tag "patient[name]","",:class => "form-control",:autocomplete => "off"
       .form-group
         Mobile no :
-        =text_field_tag "mobile","",class:"form-control"
+        =text_field_tag "patient[mobile]","",class:"form-control"
       =submit_tag "submit",class:"btn btn-primary"

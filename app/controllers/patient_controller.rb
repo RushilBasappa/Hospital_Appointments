@@ -3,14 +3,16 @@ class PatientController< ApplicationController
   end
 
   def create
-    @patient=Patient.new(physician_params)
-    render 'new' if !(@patient.save)
-    redirect_to root_path
+    if (@patient = Patient.create(patient_params)).valid?
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 
 
   private
-  def physician_params
-    params.permit(:name, :mobile)
+  def patient_params
+    params.require(:patient).permit(:name, :mobile)
   end
 end
