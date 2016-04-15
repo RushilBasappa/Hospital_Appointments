@@ -16,18 +16,23 @@ ActiveRecord::Schema.define(version: 20160407072332) do
   create_table "appointments", force: :cascade do |t|
     t.integer  "physician_id"
     t.integer  "patient_id"
+    t.date     "appointment_date"
+    t.time     "appointment_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "patients", force: :cascade do |t|
     t.string   "name"
+    t.string   "mobile"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "physicians", force: :cascade do |t|
     t.string   "name"
+    t.string   "specialization"
+    t.string   "hospital"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

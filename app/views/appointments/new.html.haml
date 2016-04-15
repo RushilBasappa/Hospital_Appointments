@@ -1,0 +1,17 @@
+.col-md-4.col-md-offset-4
+  .container-fluid
+    =form_tag create_appointment_path, :method=>'post' do
+      .form-group
+        Physician name :
+        =select_tag 'physician', options_for_select(@physicians.collect{ |u| [u.name] }),:class => "form-control"
+      .form-group
+        Patient name :
+        =select_tag 'patient', options_for_select(@patients.collect{ |u| [u.name] }),:class => "form-control"
+      .form-group
+        Appointment Date :
+        =date_field_tag(:date,nil,class:"form-control")
+      .form-group
+        Appointment Time:
+        =time_field_tag(:time,nil,class:"form-control")
+      =submit_tag "submit",class:"btn btn-primary"
+

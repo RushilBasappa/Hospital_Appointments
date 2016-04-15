@@ -1,0 +1,23 @@
+.container
+  .col-md-10.col-md-offset-1
+    -if @appointments.present?
+      %table.table.table-hover
+        %thead
+          %tr
+            %th #
+            %th Patient
+            %th Physician
+            %th Specialist
+            %th Date
+            %th Time
+        %tbody
+          -count=0
+          -@appointments.each  do |appointment|
+            %tr
+              %th=count+=1
+              %td=appointment.patient.name
+              %td=appointment.physician.name
+              %td=appointment.physician.specialization
+              %td=appointment.appointment_date
+              %td=appointment.appointment_time.to_s(:time)
+

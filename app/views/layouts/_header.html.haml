@@ -1,0 +1,11 @@
+.navbar.navbar-inverse
+  .container
+    =link_to "Hospital",root_path,id:"logo"
+    %nav
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          =link_to "Add Physician",new_physician_path
+        %li
+          =link_to "Add Patients",new_patient_path
+        %li
+          =link_to "New Appointment",new_appointment_path

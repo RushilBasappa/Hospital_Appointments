@@ -1,3 +1,14 @@
 Rails.application.routes.draw do
-  root 'welcome#home'
+
+  root 'appointments#index'
+
+  get '/physician/new', to: 'physician#new',as: :new_physician
+  post '/physician', to: 'physician#create',as: :create_physician
+
+  get '/patient/new', to: 'patient#new',as: :new_patient
+  post '/patient', to: 'patient#create',as: :create_patient
+
+  get '/appointments',to: 'appointments#index', as: :appointments
+  get '/appointments/new',to: 'appointments#new', as: :new_appointment
+  post '/appointments', to: 'appointments#create',as: :create_appointment
 end
